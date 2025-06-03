@@ -2,13 +2,12 @@
 
 This project is a simple microservice application for handling image uploads and processing for Gardrops. It consists of two parts: `ImageUploadApi` (upload) and `ImageProcessingApi` (processing).
 
-## What We Used
+## What I Used
 
-*   **Spring Boot:** An easy way to build web applications with Java.
-*   **Kotlin & Java:** The languages we used in the project, they talk to each other.
-*   **Maven:** To build and run the project.
-*   **Redis:** A fast database for storing temporary data (sessions, rate limits).
-*   **RestTemplate:** For services to communicate with each other.
+*   **Spring Boot** 
+*   **Kotlin & Java** (Kotlin for the entities)
+*   **Maven**
+*   **Redis** 
 
 ## How to Set Up and Run
 
@@ -25,20 +24,10 @@ This project is a simple microservice application for handling image uploads and
     cd ../ImageProcessingApi
     mvn clean install
     ```
-5.  Set the API key in the terminal (optional but recommended):
-    ```bash
-    export INTERNAL_API_KEY=write-a-secure-key-here
-    ```
-6.  First, start `ImageProcessingApi`:
-    ```bash
-    cd ImageProcessingApi
-    mvn spring-boot:run
-    ```
-7.  **Open another terminal**, navigate to the `ImageUploadApi` folder, and start it:
-    ```bash
-    cd ImageUploadApi
-    mvn spring-boot:run
-    ```
+
+5.  First, start `ImageProcessingApi` and then `ImageUploadApi`
+
+
 
 The services should now be running. `ImageUploadApi` runs on 8080, and `ImageProcessingApi` runs on 8081 (intended for use only by `ImageUploadApi`).
 
