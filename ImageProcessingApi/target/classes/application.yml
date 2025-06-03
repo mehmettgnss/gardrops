@@ -1,0 +1,14 @@
+server:
+  port: 8081
+  address: 127.0.0.1
+
+app:
+  image:
+    max-width: 720
+    max-height: 1280
+    quality: 0.9
+  internal:
+    api:
+      key: ${INTERNAL_API_KEY:gardrops-internal-api-2025-secure-key}
+  upload:
+    base-path: /tmp/uploads

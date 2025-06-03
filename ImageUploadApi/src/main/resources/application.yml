@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+spring:
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      database: 0
+      timeout: 2000
+
+app:
+  session:
+    ttl-hours: 1
+    max-images: 10
+  image-processing:
+    service-url: http://localhost:8081
+  rate-limit:
+    requests-per-minute: 10
+  internal:
+    api:
+      key: ${INTERNAL_API_KEY:gardrops-internal-api-2025-secure-key}
+

@@ -1,0 +1,125 @@
+{
+  "info": {
+    "name": "Gardrops Image Upload Microservices",
+    "_postman_id": "b1e1e1e1-1234-5678-9101-abcdefabcdef",
+    "description": "Gardrops ImageUploadApi & ImageProcessingApi endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "ImageUploadApi",
+      "item": [
+        {
+          "name": "Create Session",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/sessions",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["sessions"]
+            }
+          }
+        },
+        {
+          "name": "Upload Image to Session",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": ""
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8080/sessions/{{sessionId}}/images",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["sessions", "{{sessionId}}", "images"]
+            }
+          }
+        },
+        {
+          "name": "List Images in Session",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/sessions/{{sessionId}}/images",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["sessions", "{{sessionId}}", "images"]
+            }
+          }
+        },
+        {
+          "name": "Delete Image from Session",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/sessions/{{sessionId}}/images/{{imageId}}",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["sessions", "{{sessionId}}", "images", "{{imageId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "ImageProcessingApi",
+      "item": [
+        {
+          "name": "Process Image",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": ""
+                },
+                {
+                  "key": "destinationFilePath",
+                  "type": "text",
+                  "value": "/tmp/uploads/{{sessionId}}/{{imageId}}.jpg"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8081/images/process",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["images", "process"]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "sessionId",
+      "value": ""
+    },
+    {
+      "key": "imageId",
+      "value": ""
+    }
+  ]
+} 
